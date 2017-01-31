@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+</head>
+<body ng-app="myapp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+
+	<div class="col-md-12">
+	<h3>Sign Up Page</h3>
+	<form ng-submit="submitForm()" class="form">
+		<div class="col-md-4">
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="username" placeholder="UserName" required="">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" ng-model="pw1" placeholder="Password" required="">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" ng-model="pw2" placeholder="Retype Password" ng-required pw-check="pw1">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="form-contro">Sign Up</button>
+				<span class="text-danger">{{error}}</span>
+			</div>
+		</div>
+	</form>
+ <script type="text/ng-template" id="index.html"><
+
+ var app = angular.module('myapp.directives', []);
+ 	app.directive("pwCheck", function() {
+ 		return {
+ 			required: 'ngModel',
+ 			Link:function (scope, elem, attrs, crtl) {
+	 			var firstpass = "#" + attrs.pwCheck;
+	 			elem.add(firstpass).on('keyup',funtion() {
+	 				scope.$apply(function() {
+	 					var v = elem.val()===$(firstpass).val();
+	 					ctrl.$setValidity('pwmatch',v);
+	 				});
+	 			});
+ 			}
+ 		}
+ 	}]);
+
+
+<div class='msg-block' ng-show='myForm.$error'>
+  <span class='msg-error' ng-show='myForm.pw2.$error.pwmatch'>
+    Passwords don't match.
+  </span>
+</div>
+
+    <div class="col-md-12">
+      <h3>Home Page</h3>
+    
+      <a ui-sref="login">Back</a>
+    </div>
+  </script>
+
+</body>
+</html>

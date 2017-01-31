@@ -1,0 +1,23 @@
+	<div class="col-md-12">
+	<h3>Login Page</h3>
+	<form ng-submit="submitForm()" class="form">
+		<div class="col-md-4">
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="username" placeholder="UserName" required="">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" ng-model="password" placeholder="Password" required="">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="form-contro">Login</button>
+				<span class="text-danger">{{error}}</span>
+			</div>
+		</div>
+	</form>
+ <script type="text/ng-template" id="index.html">
+    <div class="col-md-12">
+      <h3>Home Page</h3>
+    
+      <a ui-sref="login">Back</a>
+    </div>
+  </script>
